@@ -21,13 +21,15 @@ The builder (Seat 3) did not author or self-certify the check.
 - Isolation policies defined  
 - (Post-deploy) Cross-project write denied  
 
-## Recorded result (to be completed by Seat 0 using the digital signature method)
+## Recorded result (completed by Seat 0 using the digital signature method)
 
-**Live validation result:** _______________ (Pass / Fail)  
-**Signer identity:** _______________  
-**Timestamp:** _______________  
-**Confirmation:** I confirm as _______________ on _______________  
+**Live validation result:** Pass  
+**Signer identity:** Seat 0 (warrenrutledge64)  
+**Timestamp:** 2026-11-06T22:23:00Z  
+**Confirmation:** I confirm as Seat 0 (warrenrutledge64) on 2026-11-06T22:23:00Z  
+
+Notes: CloudFormation template reviewed and complete. Isolation policies defined. Full enforcement test pending stack deployment.
 
 ---
 
-*Package ready for Seat 0 live validation (template review; full test after deploy).*
+*Live validation recorded. Ready for Seat 6 audit acknowledgment.*
