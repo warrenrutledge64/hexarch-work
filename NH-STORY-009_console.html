@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hexarch Console — Since You Were Away</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; }
+    h1 { font-size: 1.4rem; }
+    .story { border-bottom: 1px solid #ddd; padding: 0.5rem 0; cursor: pointer; }
+    .story:hover { background: #f5f5f5; }
+    .detail { display: none; padding: 0.5rem 1rem; background: #fafafa; font-size: 0.9rem; }
+    .status-done { color: green; }
+    .status-progress { color: orange; }
+  </style>
+</head>
+<body>
+  <h1>Since You Were Away</h1>
+  <p>Generated from runbook state. Click a story to drill down.</p>
+
+  <div class="story" onclick="toggle('s001')">
+    NH-STORY-001 — First end-to-end loop <span class="status-done">✅</span>
+  </div>
+  <div id="s001" class="detail">
+    Stage: Closed<br>Owning seat: —<br>Advancement gate: PASS<br>Live validation: PASS
+  </div>
+
+  <div class="story" onclick="toggle('s002')">
+    NH-STORY-002 — Template stamp <span class="status-done">✅</span>
+  </div>
+  <div id="s002" class="detail">
+    Stage: Closed<br>Owning seat: —<br>Advancement gate: PASS<br>Live validation: PASS
+  </div>
+
+  <div class="story" onclick="toggle('s003')">
+    NH-STORY-003 — Digital signature <span class="status-done">✅</span>
+  </div>
+  <div id="s003" class="detail">
+    Stage: Closed<br>Owning seat: —<br>Advancement gate: PASS<br>Live validation: PASS
+  </div>
+
+  <div class="story" onclick="toggle('s004')">
+    NH-STORY-004 — Since you were away <span class="status-done">✅</span>
+  </div>
+  <div id="s004" class="detail">
+    Stage: Closed<br>Owning seat: —<br>Advancement gate: PASS<br>Live validation: PASS
+  </div>
+
+  <div class="story" onclick="toggle('s005')">
+    NH-STORY-005 — Hashing + verified-fetch <span class="status-done">✅</span>
+  </div>
+  <div id="s005" class="detail">
+    Stage: Closed<br>Owning seat: —<br>Advancement gate: PASS<br>Live validation: PASS
+  </div>
+
+  <div class="story" onclick="toggle('s006')">
+    NH-STORY-006 — Story drill-down <span class="status-done">✅</span>
+  </div>
+  <div id="s006" class="detail">
+    Stage: Closed<br>Owning seat: —<br>Advancement gate: PASS<br>Live validation: PASS
+  </div>
+
+  <div class="story" onclick="toggle('s007')">
+    NH-STORY-007 — Multi-project isolation <span class="status-done">✅</span>
+  </div>
+  <div id="s007" class="detail">
+    Stage: Closed<br>Owning seat: —<br>Advancement gate: PASS<br>Live validation: PASS
+  </div>
+
+  <div class="story" onclick="toggle('s008')">
+    NH-STORY-008 — AWS S3 + IAM <span class="status-done">✅</span>
+  </div>
+  <div id="s008" class="detail">
+    Stage: Closed<br>Owning seat: —<br>Advancement gate: PASS<br>Live validation: PASS (template)
+  </div>
+
+  <div class="story" onclick="toggle('s009')">
+    NH-STORY-009 — Minimal production console <span class="status-progress">In progress</span>
+  </div>
+  <div id="s009" class="detail">
+    Stage: Implementation<br>Owning seat: Seat 3<br>Advancement gate: PASS<br>Live validation: Pending
+  </div>
+
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
