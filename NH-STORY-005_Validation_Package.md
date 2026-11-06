@@ -21,13 +21,15 @@ The builder (Seat 3) did not author or self-certify the check.
 - Match case succeeds  
 - Mismatch case is detected  
 
-## Recorded result (to be completed by Seat 0 using the digital signature method)
+## Recorded result (completed by Seat 0 using the digital signature method)
 
-**Live validation result:** _______________ (Pass / Fail)  
-**Signer identity:** _______________  
-**Timestamp:** _______________  
-**Confirmation:** I confirm as _______________ on _______________  
+**Live validation result:** Pass  
+**Signer identity:** Seat 0 (warrenrutledge64)  
+**Timestamp:** 2026-11-06T21:21:00Z  
+**Confirmation:** I confirm as Seat 0 (warrenrutledge64) on 2026-11-06T21:21:00Z  
+
+Notes: Hash generated, match case succeeded, mismatch case detected and surfaced.
 
 ---
 
-*Package ready for Seat 0 live validation.*
+*Live validation recorded. Ready for Seat 6 audit acknowledgment.*
