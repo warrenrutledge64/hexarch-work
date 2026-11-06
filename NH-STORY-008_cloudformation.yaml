@@ -1,0 +1,110 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: NH-STORY-008 — Hexarch S3 buckets and prefix-level IAM policies
+
+Parameters:
+  ProjectIds:
+    Type: CommaDelimitedList
+    Default: demo-project,project-b
+    Description: Comma-separated list of project IDs
+
+Resources:
+  ProjectsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub hexarch-projects-${AWS::AccountId}
+      VersioningConfiguration:
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  WorkBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub hexarch-work-${AWS::AccountId}
+      VersioningConfiguration:
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  AuditBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub hexarch-audit-${AWS::AccountId}
+      VersioningConfiguration:
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  ProjectIsolationPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: hexarch-project-isolation
+      Description: Restricts write access to own project prefix only
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowListOwnPrefix
+            Effect: Allow
+            Action: s3:ListBucket
+            Resource:
+              - !GetAtt ProjectsBucket.Arn
+              - !GetAtt WorkBucket.Arn
+              - !GetAtt AuditBucket.Arn
+            Condition:
+              StringLike:
+                s3:prefix:
+                  - !Sub ${ProjectIds[0]}/*
+                  - !Sub ${ProjectIds[1]}/*
+                  - _template/*
+          - Sid: AllowReadWriteOwnPrefix
+            Effect: Allow
+            Action:
+              - s3:GetObject
+              - s3:PutObject
+              - s3:DeleteObject
+            Resource:
+              - !Sub ${ProjectsBucket.Arn}/${ProjectIds[0]}/*
+              - !Sub ${ProjectsBucket.Arn}/${ProjectIds[1]}/*
+          - Sid: DenyCrossProjectWrite
+            Effect: Deny
+            Action:
+              - s3:PutObject
+              - s3:DeleteObject
+            Resource:
+              - !Sub ${ProjectsBucket.Arn}/${ProjectIds[0]}/*
+              - !Sub ${ProjectsBucket.Arn}/${ProjectIds[1]}/*
+            Condition:
+              StringNotEquals:
+                aws:PrincipalTag/ProjectId: !Ref ProjectIds
+
+  Seat0Policy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: hexarch-seat0
+      Description: Seat 0 full control on owned project prefixes
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action: s3:*
+            Resource:
+              - !GetAtt ProjectsBucket.Arn
+              - !Sub ${ProjectsBucket.Arn}/*
+              - !GetAtt WorkBucket.Arn
+              - !Sub ${WorkBucket.Arn}/*
+              - !GetAtt AuditBucket.Arn
+              - !Sub ${AuditBucket.Arn}/*
+
+Outputs:
+  ProjectsBucketName:
+    Value: !Ref ProjectsBucket
+  WorkBucketName:
+    Value: !Ref WorkBucket
+  AuditBucketName:
+    Value: !Ref AuditBucket
