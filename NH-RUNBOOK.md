@@ -1,6 +1,6 @@
 # Hexarch Runbook
 ## Operational Guide — Master Story Table
-**Version:** 2.0  
+**Version:** 2.1  
 **Date:** 2026-11-06  
 **Status:** Ready for use  
 **Related:** NH-DEC-001, NH-GP-1, NH-D-9
@@ -8,8 +8,16 @@
 ---
 
 > **Living progress ledger.** This file is the single source of truth for story status and sequence.  
-> Stories are ordered by dependency. The first ⬜ or 🟡 row is the next action.  
-> Full per-story detail lives in companion files (briefs, validation packages, close-outs).
+> Stories are ordered by dependency. The first ⬜ or 🟡 row is the next action.
+
+## Lighter process (per story)
+1. Write the brief.  
+2. Do the work.  
+3. Record the live result in the Notes column (confirmation phrase).  
+4. Flip status to ✅ in the master table.
+
+**Confirmation phrase (until cryptographic signature exists):**  
+`I confirm as <identity> on <timestamp>`
 
 ## Master story table (single source of truth for status + sequence)
 
@@ -38,13 +46,8 @@
 ## Status Legend
 `⬜ Not Started` · `🟡 In Progress` · `⛔ Blocked` · `✅ Done (validated)`
 
-## Validation & Advancement Gate (BINDING)
-- A story cannot begin until every dependency is ✅.
-- Status flips to ✅ only after a recorded live pass (digital signature method).
-- No self-certification. Seat 0 confirms; Seat 5 authors the package; Seat 6 acknowledges.
-
-## Digital signature method
-`I confirm as <identity> on <timestamp>`
+## Advancement gate
+A story cannot begin until every dependency is ✅.
 
 ## Storage model
 Three buckets (CloudFormation: NH-STORY-008):
@@ -52,12 +55,10 @@ Three buckets (CloudFormation: NH-STORY-008):
 - `hexarch-work` — temporary
 - `hexarch-audit` — audit
 
-Prefix isolation enforced by IAM.
-
 ## Seat model
 | Seat | Role |
 |------|------|
-| 0 | Human Sovereign (final decisions) |
+| 0 | Human Sovereign |
 | 1 | Orchestration & Governance |
 | 2 | Tactical Architecture |
 | 3 | Implementation |
@@ -65,14 +66,6 @@ Prefix isolation enforced by IAM.
 | 5 | Independent Validation |
 | 6 | Auditing & GRC |
 
-## Key artifacts
-- Charter: NH-DEC-001
-- Design: NH-D-3
-- CloudFormation: NH-STORY-008_cloudformation.yaml
-- Console: NH-STORY-009_console.html
-- Final checklist: NH-STORY-012_Final_Validation_Checklist.md
-- Final gate: NH-D-9_Final_Validation_Gate.md
-
 ---
 
-*Master story table is the operational source of truth. Next action is the first 🟡 row.*
+*Master table is the source of truth. Next action is the first 🟡 row.*
