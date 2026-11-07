@@ -6,14 +6,18 @@
 
 ---
 
+## Role reminder for Seat 3 (read first)
+You are **Seat 3 — Implementation**.
+You build. You receive this work package and execute it. You do not redesign or change acceptance criteria.
+
+See also: `NH-SEAT-ROLE-REMINDER.md`
+
 ## Read this first
 - This work package: `NH-STORY-013_Seat2_WorkPackage.md`
 - Brief (acceptance criteria): `NH-STORY-013_Brief.md`
 
 ## Your task
 Execute the work described below. Update the master table on completion.
-
----
 
 ---
 
