@@ -1,6 +1,6 @@
 # Hexarch Runbook
 ## Operational Guide — Master Story Table
-**Version:** 2.5  
+**Version:** 2.6  
 **Date:** 2026-11-06  
 **Status:** Ready for use  
 **Related:** NH-DEC-001, NH-GP-1, NH-D-9
@@ -30,20 +30,20 @@
 | 2 | NH-STORY-002 | Template stamp | NH-STORY-001 | ✅ | 2026-11-06 | |
 | 3 | NH-STORY-003 | Digital signature standard | NH-STORY-002 | ✅ | 2026-11-06 | |
 | 3 | NH-STORY-004 | Since-you-were-away view | NH-STORY-003 | ✅ | 2026-11-06 | |
-| 4 | NH-STORY-005 | Hashing + verified-fetch (local) | NH-STORY-004 | ✅ | 2026-11-06 | |
+| 4 | NH-STORY-005 | Hashing + verified-fetch (local) | NH-STORY-004 | ✅ | 2026-11-06 | Deploy in 014 |
 | 4 | NH-STORY-006 | Story drill-down | NH-STORY-005 | ✅ | 2026-11-06 | |
-| 5 | NH-STORY-007 | Multi-project isolation (simulated) | NH-STORY-006 | ✅ | 2026-11-06 | |
-| 5 | NH-STORY-008 | AWS S3 + IAM (CloudFormation) | NH-STORY-007 | ✅ | 2026-11-06 | Template ready |
-| 6 | NH-STORY-009 | Minimal production console | NH-STORY-008 | ✅ | 2026-11-06 | |
+| 5 | NH-STORY-007 | Multi-project isolation (simulated) | NH-STORY-006 | ✅ | 2026-11-06 | Deploy + confirm in 013 |
+| 5 | NH-STORY-008 | AWS S3 + IAM (CloudFormation) | NH-STORY-007 | ✅ | 2026-11-06 | Template ready — deploy in 013 |
+| 6 | NH-STORY-009 | Minimal production console | NH-STORY-008 | ✅ | 2026-11-06 | Auth in 017 (optional) |
 | 6 | NH-STORY-010 | Minimal notification path | NH-STORY-009 | ✅ | 2026-11-06 | |
-| 7 | NH-STORY-011 | Production hashing design | NH-STORY-010 | ✅ | 2026-11-06 | Design ready |
-| 7 | NH-STORY-012 | Final validation checklist | NH-STORY-011 | ✅ | 2026-11-06 | |
-| 8 | NH-D-9 | Final Validation Gate | NH-STORY-012 | ✅ | 2026-11-06 | Conditional Pass |
-| 8 | NH-STORY-013 | Deploy CloudFormation + confirm isolation | NH-STORY-012 | ⬜ |  | Next when AWS available |
-| 9 | NH-STORY-014 | Deploy hashing Lambda + verified-fetch on live S3 | NH-STORY-013 | ⬜ |  | |
-| 10 | NH-STORY-015 | Re-run final validation gate on live AWS | NH-STORY-014 | ⬜ |  | Replace Conditional Pass |
+| 7 | NH-STORY-011 | Production hashing design | NH-STORY-010 | ✅ | 2026-11-06 | Deploy in 014 |
+| 7 | NH-STORY-012 | Final validation checklist | NH-STORY-011 | ✅ | 2026-11-06 | Re-run in 015 |
+| 8 | NH-D-9 | Final Validation Gate | NH-STORY-012 | ✅ | 2026-11-06 | Conditional Pass — full Pass in 015 |
+| 8 | NH-STORY-013 | Deploy CloudFormation + confirm isolation | NH-STORY-012 | ⬜ |  | Deploys 008 + confirms 007 |
+| 9 | NH-STORY-014 | Deploy hashing Lambda + verified-fetch on live S3 | NH-STORY-013 | ⬜ |  | Deploys 011 + 005 |
+| 10 | NH-STORY-015 | Re-run final validation gate on live AWS | NH-STORY-014 | ⬜ |  | Completes 012 / D-9 |
 | 10 | NH-STORY-016 | Dual-control enforcement in IAM | NH-STORY-013 | ⬜ |  | Seat 1 + Seat 6 oversight |
-| 11 | NH-STORY-017 | Console authentication | NH-STORY-015 | ⬜ |  | Optional |
+| 11 | NH-STORY-017 | Console authentication | NH-STORY-015 | ⬜ |  | Completes 009 (optional) |
 | 11 | NH-STORY-018 | Operations handoff / customer onboarding template | NH-STORY-015 | ⬜ |  | |
 
 ---
@@ -73,4 +73,4 @@ Three buckets (CloudFormation: NH-STORY-008):
 
 ---
 
-*Master table is the source of truth. AWS deployment stories are in the plan and ready when AWS access is available. Next action is NH-STORY-013.*
+*Master table is the source of truth. Deployment stories are linked to the completed stories they deploy or complete. Next action is NH-STORY-013 when AWS is available.*
