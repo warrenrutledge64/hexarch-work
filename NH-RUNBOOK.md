@@ -1,6 +1,6 @@
 # Hexarch Runbook
 ## Operational Guide — Master Story Table
-**Version:** 2.3  
+**Version:** 2.4  
 **Date:** 2026-11-06  
 **Status:** Ready for use  
 **Related:** NH-DEC-001, NH-GP-1, NH-D-9
@@ -10,14 +10,14 @@
 > **Living progress ledger.** This file is the single source of truth for story status and sequence.  
 > Stories are ordered by dependency. The first ⬜ or 🟡 row is the next action.
 
-## Lighter process (per story)
-1. Write the brief.  
+## Process (per story)
+1. Write the brief (or update the table row).  
 2. Do the work.  
-3. Record the live result in the Notes column (confirmation phrase).  
-4. Flip status to ✅ in the master table.
+3. Update the master table with the result.  
+4. Continue.
 
-**Confirmation phrase (until cryptographic signature exists):**  
-`I confirm as <identity> on <timestamp>`
+**No pause for confirmation** unless a decision is required that changes direction.  
+**What is recorded:** status in the master table, the brief, and the actual deliverable.
 
 ## Master story table (single source of truth for status + sequence)
 
@@ -73,4 +73,4 @@ Three buckets (CloudFormation: NH-STORY-008):
 
 ---
 
-*Master table is the source of truth. NH-STORY-013 deferred; remaining AWS stories blocked.*
+*Master table is the source of truth. Process is minimal: brief + table + deliverable. AWS stories deferred.*
