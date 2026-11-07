@@ -1,9 +1,9 @@
 # Hexarch Runbook
 ## Operational Guide — Master Story Table
-**Version:** 2.7  
+**Version:** 2.8  
 **Date:** 2026-11-06  
 **Status:** Ready for use  
-**Related:** NH-DEC-001, NH-GP-1, NH-D-9, NH-DEC-009
+**Related:** NH-DEC-001, NH-GP-1, NH-D-9, NH-DEC-009, NH-PROCESS-Seat_Handoff_Flow.md
 
 ---
 
@@ -18,6 +18,18 @@
 
 **No pause for confirmation** unless a decision is required that changes direction.  
 **What is recorded:** status in the master table, the brief, and the actual deliverable.
+
+## Seat handoff flow
+See `NH-PROCESS-Seat_Handoff_Flow.md` for the full note.
+
+| Step | Seat | Action |
+|------|------|--------|
+| 1 | Seat 0 | Writes the brief. |
+| 2 | Seat 1 | Writes the prompt that directs Seat 2. |
+| 3 | Seat 2 | Writes the technical design / work package. |
+| 4 | Seat 3 | Builds from the work package. |
+| 5 | Seat 5 | Validates against the brief. |
+| 6 | Seat 6 | Audit acknowledgment. |
 
 ## Master story table (single source of truth for status + sequence)
 
@@ -73,4 +85,4 @@ Three buckets (CloudFormation: NH-STORY-008):
 
 ---
 
-*Master table is the source of truth. Seat model locked in NH-DEC-009. Next action is NH-STORY-013 when AWS is available.*
+*Master table is the source of truth. Seat handoff flow in NH-PROCESS-Seat_Handoff_Flow.md. Next action is NH-STORY-013 when AWS is available.*
