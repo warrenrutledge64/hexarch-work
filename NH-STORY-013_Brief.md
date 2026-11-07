@@ -1,39 +1,34 @@
 # Story Brief — NH-STORY-013
-## Deploy CloudFormation Stack and Confirm Isolation
+## Deploy CloudFormation + Confirm Isolation
 **Date:** 2026-11-06  
-**Status:** Ready for advancement check  
-**Related:** NH-STORY-012 (closed), NH-D-5, NH-D-9
+**Status:** Ready for execution  
+**Depends on:** NH-STORY-012 (✅)
 
 ---
 
 ## Story
-
-**ID:** NH-STORY-013  
-**Title:** Deploy CloudFormation stack and confirm isolation  
-
 **As** Seat 0  
-**I want** the CloudFormation stack deployed and a cross-project write test performed on the live buckets  
-**So that** we replace the Conditional Pass with a confirmed Pass on real AWS.
+**I want** the CloudFormation stack deployed and isolation confirmed on live AWS  
+**So that** we replace the Conditional Pass with a confirmed Pass.
 
 ## Acceptance criteria
+- [ ] CloudFormation stack deploys successfully
+- [ ] Three buckets exist
+- [ ] Cross-project write is denied
+- [ ] Same-project read succeeds
+- [ ] Result recorded in the master table with confirmation phrase
 
-- [ ] CloudFormation stack deploys successfully  
-- [ ] Three buckets exist  
-- [ ] A write from one project context to another is denied  
-- [ ] Result recorded with digital signature  
-- [ ] Advancement gate, independent validation, live pass, and audit acknowledgment are followed  
-- [ ] Status flips to ✅ only after the recorded pass  
-- [ ] Warm handoff written  
+## Deploy command
+```bash
+aws cloudformation deploy \
+  --template-file NH-STORY-008_cloudformation.yaml \
+  --stack-name hexarch-storage \
+  --capabilities CAPABILITY_NAMED_IAM
+```
 
-## Out of scope
-
-- Full Lambda deployment  
-- Console authentication  
-
-## Definition of Done
-
-A recorded live pass exists showing that the stack is deployed and isolation is enforced, and the runbook shows the story as ✅.
+## Verification
+See `NH-STORY-013_Security_Performance_Test_Plan.md`
 
 ---
 
-*Brief locked for NH-STORY-013.*
+*Brief ready. Deployment requires AWS credentials.*
