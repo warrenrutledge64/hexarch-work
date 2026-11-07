@@ -1,9 +1,9 @@
 # Hexarch Runbook
 ## Operational Guide — Master Story Table
-**Version:** 2.6  
+**Version:** 2.7  
 **Date:** 2026-11-06  
 **Status:** Ready for use  
-**Related:** NH-DEC-001, NH-GP-1, NH-D-9
+**Related:** NH-DEC-001, NH-GP-1, NH-D-9, NH-DEC-009
 
 ---
 
@@ -60,17 +60,17 @@ Three buckets (CloudFormation: NH-STORY-008):
 - `hexarch-work` — temporary
 - `hexarch-audit` — audit
 
-## Seat model
-| Seat | Role |
-|------|------|
-| 0 | Human Sovereign |
-| 1 | Orchestration & Governance |
-| 2 | Tactical Architecture |
-| 3 | Implementation |
-| 4 | Moderation |
-| 5 | Independent Validation |
-| 6 | Auditing & GRC |
+## Seat model (locked — see NH-DEC-009)
+| Seat | Role | Model | Provider |
+|------|------|-------|----------|
+| 0 | Human Sovereign | Gemini Sovereign | Google |
+| 1 | Orchestration & Governance | Claude Haiku 5.5 | Anthropic |
+| 2 | Tactical Architecture | GPT-5.6 Luna | OpenAI |
+| 3 | Implementation | Qwen3-Coder-30B-A3B-Instruct | Qwen |
+| 4 | Moderation | Ministral 3B | Mistral AI |
+| 5 | Independent Validation | Llama 4 Scout 17B Instruct | Meta |
+| 6 | Auditing & GRC | Jamba 1.5 Mini | AI21 Labs |
 
 ---
 
-*Master table is the source of truth. Deployment stories are linked to the completed stories they deploy or complete. Next action is NH-STORY-013 when AWS is available.*
+*Master table is the source of truth. Seat model locked in NH-DEC-009. Next action is NH-STORY-013 when AWS is available.*
