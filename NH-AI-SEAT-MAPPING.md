@@ -1,41 +1,74 @@
-# NH-AI-SEAT-MAPPING — Locked AI-to-Seat Assignment
-## Hexarch Working Document
+# NH-AI-SEAT-MAPPING
+## Finalized 7-Seat Committee — Model Assignment
 **Date:** 2026-11-06  
-**Status:** Locked (pending formal decision record)  
-**Related:** NH-CR-001, Ratified Charter
+**Status:** Locked  
+**Related:** NH-DEC-009, NH-RUNBOOK.md
 
 ---
 
-## Locked Mapping (fully diversified — no provider repeated)
+## Finalized Committee
 
-| Seat | Function | Model | Provider |
-|------|----------|-------|----------|
-| **0** | Human Sovereign + supporting AI | Gemini | Google |
-| **1** | Orchestration & Governance | Claude 3.5 Sonnet | Anthropic |
-| **2** | Tactical Architecture | Amazon Nova Pro | Amazon |
-| **3** | Implementation & Code Execution | Mistral Large | Mistral |
-| **4** | Moderation & Session Facilitation | Cohere Command R+ | Cohere |
-| **5** | Independent Validation & QA | AI21 Jamba 1.5 Large | AI21 |
-| **6** | Auditing & GRC | Meta Llama 3.1 70B | Meta |
-
-## Principles applied
-- No provider is used more than once.
-- Seats 1–6 use models available on Amazon Bedrock.
-- Selection balances functionality with mid-to-low cost where possible.
-- Seat 5 and Seat 6 are intentionally different from the governance and implementation models to support independent challenge and audit.
-
-## Pros summary
-
-| Seat | Model | Key strength for the seat |
-|------|-------|---------------------------|
-| 0 | Gemini | Multimodal / long-context support for the human; independent of working seats |
-| 1 | Claude 3.5 Sonnet | Long-context governance, document consistency, low hallucination |
-| 2 | Amazon Nova Pro | Architectural reasoning, cost-effective, native AWS fit |
-| 3 | Mistral Large | Solid coding, efficient, different failure modes |
-| 4 | Cohere Command R+ | Multi-turn facilitation, session tracking, retrieval strength |
-| 5 | AI21 Jamba 1.5 Large | Long context, independent reasoning style for validation |
-| 6 | Meta Llama 3.1 70B | Structured output, control mapping, cost-effective audit work |
+| Seat | Functional Committee Role | Model Name | Version | Provider (Vendor) | Target Input Cost (per 1M) |
+|------|---------------------------|------------|---------|-------------------|----------------------------|
+| 0 | Human Sovereign (Final Approver) | Gemini Sovereign | N/A | Google | Varies |
+| 1 | Orchestration & Governance | Claude Haiku 5.5 | v1 | Anthropic | $0.10 |
+| 2 | Tactical Architecture | GPT-5.6 Luna | v1 | OpenAI | $0.20 |
+| 3 | Implementation | Qwen3-Coder-30B-A3B-Instruct | 1 | Qwen | ~$0.25 |
+| 4 | Moderation | Ministral 3B | v1 | Mistral AI | $0.10 |
+| 5 | Independent Validation | Llama 4 Scout 17B Instruct | v1.0 | Meta | ~$0.12 |
+| 6 | Auditing & GRC | Jamba 1.5 Mini | v1 | AI21 Labs | ~$0.15–$0.20 |
 
 ---
 
-*This mapping is locked as the working assignment. It may be formalized later as a decision record against the ratified charter.*
+## Architectural Filters Applied
+
+Every model was selected against three non-negotiable filters:
+1. **Strict vendor diversity** — no overlapping providers.
+2. **Task-to-model specialization** — model strengths match seat function.
+3. **Aggressive $0.10–$0.25 cost ceiling** — for nearly the entire processing chain.
+
+---
+
+## Key Architectural Strengths
+
+- **Complete Redundancy Protection:** Seven entirely separate corporate entities (Google, Anthropic, OpenAI, Qwen, Mistral AI, Meta, and AI21 Labs). An outage or API restriction at one company will never crash the entire governance loop.
+- **Massive Budget Efficiency:** By avoiding heavy frontier models for downstream programmatic tasks, the system core can process millions of continuous token updates for pennies.
+- **Role Specialization:** Every model fits its assigned behavioral profile.
+
+---
+
+## Engineering Rationale by Seat
+
+### Seat 1: Claude Haiku 5.5 (Anthropic) — The Traffic Cop
+- **Why:** Orchestration requires lightning-fast advancement checks, loop evaluations, and path routing. Haiku 5.5 handles massive context histories and performs rapid-fire structural tasks instantly.
+- **Cost Match:** Exactly hits the $0.10 per 1M input tokens target.
+
+### Seat 2: GPT-5.6 Luna (OpenAI) — The System Architect
+- **Why:** Designing systems and evaluating deep engineering trade-offs requires advanced structural reasoning. Luna features integrated reasoning cycles that evaluate edge cases before outputting a plan.
+- **Cost Match:** $0.20 per 1M input tokens.
+
+### Seat 3: Qwen3-Coder-30B (Qwen) — The Dedicated Builder
+- **Why:** Pre-trained exclusively on software development, multi-language repository building, and infrastructure templates. Writes code because that is its sole function.
+- **Cost Match:** ~$0.25 per 1M input tokens.
+
+### Seat 4: Ministral 3B (Mistral AI) — The Discussion Facilitator
+- **Why:** A moderator needs to read conversational transcripts, keep other models from drifting off-topic, and track agenda milestones. Needs speed and cheap multi-turn chat fluidness.
+- **Cost Match:** Exactly $0.10 per 1M input tokens.
+
+### Seat 5: Llama 4 Scout 17B (Meta) — The Strict Inspector
+- **Why:** Validation requires cross-examining what the developer built against what the architect designed. Llama 4 Scout is fine-tuned for high-precision instruction following and strict verification parsing.
+- **Cost Match:** ~$0.12 per 1M input tokens.
+
+### Seat 6: Jamba 1.5 Mini (AI21 Labs) — The Risk Auditor
+- **Why:** Compliance and GRC require an engine that can swallow entire policy manuals, regulatory rulebooks, and the full historical log of the committee's debate. Jamba's hybrid SSM architecture excels at digesting massive context blocks efficiently.
+- **Cost Match:** ~$0.15–$0.20 per 1M input tokens.
+
+---
+
+## Economic Architecture Summary
+
+Heavy-hitting reasoning is isolated to the seats that need it (Architecture). The rest of the systemic tissue is supported by ultra-fast, high-throughput utility engines running at the $0.10 financial marker.
+
+---
+
+*Locked 2026-11-06. See also NH-DEC-009.*
